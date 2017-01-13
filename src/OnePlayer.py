@@ -90,8 +90,15 @@ class OnePlayer(tk.Tk):
 		if(maxscore == float("-inf")):
 			for child in node.expand(problem):
 					
-				if self.minimax(child, 1, False, problem) >= maxscore:
+				if self.minimax(child, 1, False, problem) > maxscore:
 					maxscore = self.minimax(child, 1, False, problem)
+					tmpnode = deepcopy(child)
+		
+		if(maxscore == float("-inf")):
+			for child in node.expand(problem):
+					
+				if self.minimax(child, 0, False, problem) >= maxscore:
+					maxscore = self.minimax(child, 0, False, problem)
 					tmpnode = deepcopy(child)
 
 
