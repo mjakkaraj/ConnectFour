@@ -29,7 +29,7 @@ class MainMenu(tk.Tk):
 		winnerTitle.configure(background='yellow')
 		winnerTitle.grid(column = 0,row = 0)
 		# create all buttons
-		onePlayer = tk.Button(self.canvas,text="Single Player",font=BUTTONS ,command=self.onePlayer)
+		onePlayer = tk.Button(self.canvas,text="Single Player (vs. AI)",font=BUTTONS ,command=self.onePlayer)
 		onePlayer.configure(background='white')
 		onePlayer.grid(column = 0, row = 1)
 
