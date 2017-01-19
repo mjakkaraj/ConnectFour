@@ -76,6 +76,12 @@ class OnePlayer(tk.Tk):
 					#	
 					#	maxscore = problem.evaluation( child.getState() )
 					#	tmpnode = deepcopy(child)
+
+			if problem.evaluation( child.getState() )==float("inf"):
+				maxscore = float("inf")
+				tmpnode = deepcopy(child)
+				break
+
 			if self.minimax(child, 3, False, problem) > maxscore:
 				maxscore = self.minimax(child, 3, False, problem)
 				tmpnode = deepcopy(child)	
@@ -118,10 +124,16 @@ class OnePlayer(tk.Tk):
 		if (maximizingPlayer == True):
 			bestValue = float("-inf")
 
+			#currentstate = problem.evaluation( node.getState() )
+			#if (currentstate == float("inf") ):
+			#	return currentstate
+
 			for child in node.expand(problem):
-				#val = problem.evaluation( child.getState() )
-				#if (val == float("inf")):
-				#	return val
+				val = problem.evaluation( child.getState() )
+				if (val == float("inf")):
+					return val
+
+				
 					
 				val = self.minimax(child, depth-1, False, problem)
 				bestValue = max(bestValue, val)
@@ -131,11 +143,15 @@ class OnePlayer(tk.Tk):
 		if(maximizingPlayer == False):
 			bestValue = float("inf")
 
+			#currentstate = problem.evaluation( node.getState() )
+			#if( currentstate == float("-inf") ):
+			#	return currentstate
+
 			for child in node.expand(problem):
 
-				#val = problem.evaluation( child.getState() )
-				#if (val == float("-inf")):
-				#	return val
+				val = problem.evaluation( child.getState() )
+				if (val == float("-inf")):
+					return val
 
 				val = self.minimax(child, depth-1, False, problem)
 				bestValue = min(bestValue, val)
