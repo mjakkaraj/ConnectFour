@@ -71,21 +71,35 @@ class OnePlayer(tk.Tk):
 		tmpnode = deepcopy(node)
 		maxscore = float("-inf")
 		for child in node.expand(problem):
-					#print(problem.evaluation( child.getState() ))
-					#if problem.evaluation( child.getState() )>maxscore:
-					#	
-					#	maxscore = problem.evaluation( child.getState() )
-					#	tmpnode = deepcopy(child)
 			if problem.evaluation( child.getState() )==float("inf"):
 				maxscore = float("inf")
 				tmpnode = deepcopy(child)
 				break
 			
-			tmpval = self.minimax(child, 3, False, problem)
-
+			tmpval = self.minimax(child, 4, False, problem)
+			#print(tmpval)
 			if tmpval > maxscore:
 				maxscore = tmpval
-				tmpnode = deepcopy(child)	
+				tmpnode = deepcopy(child)
+		'''
+		if(maxscore == float("-inf")):
+			for child in node.expand(problem):
+				
+				tmpval = self.minimax(child, 4, False, problem)
+					
+				if tmpval > maxscore:
+					maxscore = tmpval
+					tmpnode = deepcopy(child)
+		'''
+
+		if(maxscore == float("-inf")):
+			for child in node.expand(problem):
+				
+				tmpval = self.minimax(child, 3, False, problem)
+					
+				if tmpval > maxscore:
+					maxscore = tmpval
+					tmpnode = deepcopy(child)	
 
 		if(maxscore == float("-inf")):
 			for child in node.expand(problem):
@@ -114,7 +128,6 @@ class OnePlayer(tk.Tk):
 					maxscore = tmpval
 					tmpnode = deepcopy(child)
 
-
 		#print(problem.evaluation(tmpnode.getState()))
 
 		for i in range(7):
@@ -124,7 +137,8 @@ class OnePlayer(tk.Tk):
 
 
 	def minimax(self, node, depth, maximizingPlayer, problem):
-		if ((depth == 0) or (node == None)):
+		if ((depth == 0) or (problem.getActions( node.getState() ) == [])):
+			
 			return problem.evaluation( node.getState() )
 
 
@@ -144,7 +158,7 @@ class OnePlayer(tk.Tk):
 					
 				val = self.minimax(child, depth-1, False, problem)
 				bestValue = max(bestValue, val)
-			
+
 			return bestValue
 		
 		if(maximizingPlayer == False):
@@ -160,7 +174,7 @@ class OnePlayer(tk.Tk):
 				if (val == float("-inf")):
 					return val
 
-				val = self.minimax(child, depth-1, False, problem)
+				val = self.minimax(child, depth-1, True, problem)
 				bestValue = min(bestValue, val)
 			
 			return bestValue		
