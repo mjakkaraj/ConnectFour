@@ -81,11 +81,11 @@ class ConnectProblem(AIproblem):
 				if((c1 == self.color1) and (c2 == self.color1)):
 					score+=1
 				if((c1 == self.color2) and (c2 == self.color2)):
-					score-=1
+					score-=2
 				if((c1 == self.color1) and (c2 == self.color1) and (c3 == self.color1)):
 					score+=2
 				if((c1 == self.color2) and (c2 == self.color2) and (c3 == self.color2)):
-					score-=2
+					score-=3
 				if((c1 == self.color1) and (c2 == self.color1) and (c3 == self.color1) and (c4 == self.color1)):		
 					#score+=100000
 					score = float("inf")
@@ -104,11 +104,11 @@ class ConnectProblem(AIproblem):
 				if((c1 == self.color1) and (c2 == self.color1)):
 					score+=1
 				if((c1 == self.color2) and (c2 == self.color2)):
-					score-=1
+					score-=2
 				if((c1 == self.color1) and (c2 == self.color1) and (c3 == self.color1)):
 					score+=2
 				if((c1 == self.color2) and (c2 == self.color2) and (c3 == self.color2)):
-					score-=2
+					score-=3
 				if((c1 == self.color1) and (c2 == self.color1) and (c3 == self.color1) and (c4 == self.color1)):		
 					#score+=100000
 					score = float("inf")
@@ -127,11 +127,11 @@ class ConnectProblem(AIproblem):
 				if((c1 == self.color1) and (c2 == self.color1)):
 					score+=1
 				if((c1 == self.color2) and (c2 == self.color2)):
-					score-=1
+					score-=2
 				if((c1 == self.color1) and (c2 == self.color1) and (c3 == self.color1)):
 					score+=2
 				if((c1 == self.color2) and (c2 == self.color2) and (c3 == self.color2)):
-					score-=2
+					score-=3
 				if((c1 == self.color1) and (c2 == self.color1) and (c3 == self.color1) and (c4 == self.color1)):		
 					#score+=100000
 					score = float("inf")
@@ -150,11 +150,11 @@ class ConnectProblem(AIproblem):
 				if((c1 == self.color1) and (c2 == self.color1)):
 					score+=1
 				if((c1 == self.color2) and (c2 == self.color2)):
-					score-=1
+					score-=2
 				if((c1 == self.color1) and (c2 == self.color1) and (c3 == self.color1)):
 					score+=2
 				if((c1 == self.color2) and (c2 == self.color2) and (c3 == self.color2)):
-					score-=2
+					score-=3
 				if((c1 == self.color1) and (c2 == self.color1) and (c3 == self.color1) and (c4 == self.color1)):		
 					#score+=100000
 					score = float("inf")
