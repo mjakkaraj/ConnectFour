@@ -76,7 +76,7 @@ class OnePlayer(tk.Tk):
 				tmpnode = deepcopy(child)
 				break
 			
-			tmpval = self.minimax(child, 4, False, problem)
+			tmpval = self.minimax(child, 5, False, problem)
 			#print(tmpval)
 			if tmpval > maxscore:
 				maxscore = tmpval
